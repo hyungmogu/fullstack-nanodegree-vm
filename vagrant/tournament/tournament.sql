@@ -1,4 +1,4 @@
--- Table definitions for the tournament project.
+;-- Table definitions for the tournament project.
 --
 -- Put your SQL 'create table' statements in this file; also 'create view'
 -- statements if you choose to use it.
@@ -7,3 +7,14 @@
 -- these lines here.
 
 
+CREATE TABLE players (
+	id SERIAL PRIMARY KEY,
+	name TEXT NOT NULL
+);
+
+CREATE TABLE matches (
+	id SERIAL PRIMARY KEY,
+	wins INT NOT NULL,
+	losses INT NOT NULL,
+	matches INT NOT NULL
+); 
