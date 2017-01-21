@@ -44,3 +44,9 @@ Udacity Tournament Result is a project for the course "Intro to Relational Datab
 
 ### 4. Running Project File
 
+1. Type `cd /vagrant/tournament/`; navigate to tournament files located outside the virtual machine
+2. Type `python`; run python
+3. Type `import tournament` in python shell; finish importing functions from the module
+
+## Functions in Module
+
