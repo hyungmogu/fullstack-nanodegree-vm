@@ -46,7 +46,30 @@ Udacity Tournament Result is a project for the course "Intro to Relational Datab
 
 1. Type `cd /vagrant/tournament/`; navigate to tournament files located outside the virtual machine
 2. Type `python`; run python
-3. Type `import tournament` in python shell; finish importing functions from the module
+3. Type `import tournament` in python shell; import functions from the module
 
-## Functions in Module
+## Functions
 
+### deleteMatches()
+Removes all match records from database.
+
+### deletePlayers()
+Removes all player records from database.
+
+### countPlayers()
+Returns the number of registered players.
+
+### registerPlayer(name)
+Adds a player to the tournament database.
+
+### playerStandings()
+Returns a list of the players and their win records, sorted by wins.
+
+### reportMatch(winner_id,loser_id)
+Records the outcome of a single match between two players.
+
+### swissPairings()
+Returns a list of pairs of players for the next round of a match.
+
+
+   
