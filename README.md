@@ -31,7 +31,7 @@ Udacity Tournament Result is a project for the course "Intro to Relational Datab
 3. Boot into BIOS and enable virtual environment
   - NOTE: This step varies for different motherboard models and versions. Please refer to instruction provided by manufacturer for details.  
 
-### 3. Running Vagrant3
+### 3. Running Vagrant
 
 #### Windows
 1. 
