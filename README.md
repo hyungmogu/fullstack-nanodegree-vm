@@ -15,7 +15,7 @@ Udacity Tournament Result is a project for the course "Intro to Relational Datab
 1. Install [git bash](https://git-scm.com/downloads) 
 2. Open git bash
 3. Navigate to a directory of choice. 
-4. Type `git clone https://github.com/hyungmogu/udacity-tournament-result/` in the directory; download the repository
+4. Type `git clone https://github.com/hyungmogu/udacity-tournament-result/`; download the repository
 
 #### Linux/MacOS
 
