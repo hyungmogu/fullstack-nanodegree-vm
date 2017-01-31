@@ -14,14 +14,14 @@ Udacity Tournament Result is a project for the course "Intro to Relational Datab
 
 1. Install [git bash](https://git-scm.com/downloads) 
 2. Open git bash
-3. Navigate to a directory of choice
-4. Type `git clone https://github.com/hyungmogu/udacity-tournament-result/`; clone the repository
+3. Navigate to a directory of choice. 
+4. Type `git clone https://github.com/hyungmogu/udacity-tournament-result/` in the directory; download the repository
 
 #### Linux/MacOS
 
 1. Open terminal
 2. Navigate to a directory of choice
-3. Type `git clone https://github.com/hyungmogu/udacity-tournament-result/`; clone the repository
+3. Type `git clone https://github.com/hyungmogu/udacity-tournament-result/`; download the repository
 
 ### 2. Installing Vagrant
 
@@ -34,14 +34,19 @@ Udacity Tournament Result is a project for the course "Intro to Relational Datab
 ### 3. Running Vagrant
 
 #### Windows
-1. 
+1. Open git bash
+2. Navigate to the directory where the cloned repo is located
+3. Type `cd /udacity-tournament-result/vagrant/`; navigate to where `VagrantFile` is located
+4. Type `vagrant up`; let vagrant to setup dependencies
+5. Type `vagrant ssh` when step 4 is finished; login to the virtual machine
 
 #### Linux/MacOS
 
 1. Open terminal
-2. Navigate to the directory where cloned repo is located
-3. Type `vagrant up` in `Vagrant` folder containing 'Vagrantfile'
-4. Type `vagrant ssh` and log into the virtual machine
+2. Navigate to the directory where the cloned repo is located
+3. Type `cd /udacity-tournament-result/vagrant/`; navigate to where `VagrantFile` is located
+4. Type `vagrant up`; let vagrant to setup dependencies
+5. Type `vagrant ssh` when step 4 is finished; login to the virtual machine
 
 ### 4. Running Project File (In Vagrant)
 
