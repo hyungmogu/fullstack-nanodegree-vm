@@ -7,10 +7,12 @@ import psycopg2
 
 
 def connect():
-    """Connects to PostgreSQL database. The object is to be used for 
+    """Connects to PostgreSQL database. The method is to be used for 
     performing queries. 
     """
-    return psycopg2.connect("dbname=tournament")
+    conn = psycopg2.connect("dbname=tournament")
+    cursor = conn.cursor()
+    return conn, cursor
 
 def deleteMatches():
     """Removes all entries from a table named 'matches'.
@@ -21,8 +23,7 @@ def deleteMatches():
     @Returns:
       None
     """
-    conn = connect()
-    cursor = conn.cursor()
+    conn, cursor = connect()
     cursor.execute("DELETE FROM match_result;")
     conn.commit() 
     conn.close()
@@ -38,8 +39,7 @@ def deletePlayers():
     @Returns:
       None
     """
-    conn = connect()
-    cursor = conn.cursor()
+    conn, cursor = connect()
     cursor.execute("DELETE FROM player;")
     conn.commit()
     conn.close()
@@ -55,8 +55,7 @@ def countPlayers():
     @Returns
       [INT] Number of Players 
     """
-    conn = connect()
-    cursor = conn.cursor()
+    conn, cursor = connect()
     cursor.execute("SELECT COUNT(*) FROM player")
     result = cursor.fetchone()
     conn.close()
@@ -72,8 +71,7 @@ def registerPlayer(name):
     @Returns:
       None
     """
-    conn = connect()
-    cursor = conn.cursor()
+    conn, cursor = connect()
     query = "INSERT INTO player (name) VALUES (%s);"
     data = (name,)
     cursor.execute(query, data)
@@ -95,11 +93,11 @@ def playerStandings():
         wins,[INTEGER]: the number of matches player has won
         matches,[INTEGER]: the number of matches player has played
     """
-    conn = connect()
-    cursor = conn.cursor()
+    conn, cursor = connect()
     query = """SELECT * FROM player_standings;"""
     cursor.execute(query)
     result2 = cursor.fetchall()
+    conn.close()
     return result2
 
 def reportMatch(winner, loser):
@@ -112,8 +110,7 @@ def reportMatch(winner, loser):
     @Returns:
        None
     """
-    conn = connect()
-    cursor = conn.cursor()
+    conn, cursor = connect()
     cursor.execute("INSERT INTO match_result (winner_id,loser_id) VALUES (%s,%s)",(winner,loser))
     conn.commit()
     conn.close()
