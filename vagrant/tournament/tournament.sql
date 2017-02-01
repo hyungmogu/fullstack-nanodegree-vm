@@ -28,7 +28,7 @@ CREATE VIEW wins AS
 SELECT t.id, COUNT(t.winner_id)
 FROM (SELECT p.id AS id, m.winner_id AS winner_id FROM player p LEFT JOIN match_result m ON p.id = m.winner_id) AS t 
 GROUP BY t.id; 
--- Count number of wins per player id
+-- Count number of losses per player id
 CREATE VIEW losses AS
 SELECT t.id, COUNT(t.loser_id)
 FROM (SELECT p.id AS id, m.loser_id AS loser_id FROM player p LEFT JOIN match_result m ON p.id = m.loser_id) AS t
