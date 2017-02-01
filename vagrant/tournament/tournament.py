@@ -118,7 +118,6 @@ def reportMatch(winner, loser):
             + " player1_id = {0} (winner) and player2_id = {1} (loser)".format(winner,loser))
     return
 
-  
 def swissPairings():
     """Pairs players for the next round of a match.
   
@@ -132,12 +131,10 @@ def swissPairings():
             id2,[INTEGER]: the second player's unique id
             name2,[STRING]: the second player's name
     """
-
     count = countPlayers()
     standings = playerStandings()
     result = []    
     i = 0
-
     # Pairs people with similar standings. Note that
     # standings[i][0]: the id of first player
     # standings[i][1]: the name of first player
