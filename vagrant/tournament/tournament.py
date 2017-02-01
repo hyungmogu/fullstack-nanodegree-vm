@@ -23,7 +23,7 @@ def deleteMatches():
     """
     conn = connect()
     cursor = conn.cursor()
-    cursor.execute("DELETE FROM matches;")
+    cursor.execute("DELETE FROM match_result;")
     conn.commit() 
     conn.close()
     print("Deleted all match records from table")
@@ -40,7 +40,7 @@ def deletePlayers():
     """
     conn = connect()
     cursor = conn.cursor()
-    cursor.execute("DELETE FROM players;")
+    cursor.execute("DELETE FROM player;")
     conn.commit()
     conn.close()
     print("Deleted all player records from table")
@@ -57,7 +57,7 @@ def countPlayers():
     """
     conn = connect()
     cursor = conn.cursor()
-    cursor.execute("SELECT COUNT(*) FROM players")
+    cursor.execute("SELECT COUNT(*) FROM player")
     result = cursor.fetchone()
     conn.close()
     num_of_players = result[0]
@@ -74,11 +74,9 @@ def registerPlayer(name):
     """
     conn = connect()
     cursor = conn.cursor()
-    query1 = "INSERT INTO players (name) VALUES (%s);"
+    query = "INSERT INTO player (name) VALUES (%s);"
     data = (name,)
-    cursor.execute(query1, data)
-    conn.commit()
-    cursor.execute("INSERT INTO matches (wins,losses,matches) VALUES (0,0,0);")
+    cursor.execute(query, data)
     conn.commit()
     conn.close()
     print("Player named %s successfully added to database" % name)
@@ -99,19 +97,8 @@ def playerStandings():
     """
     conn = connect()
     cursor = conn.cursor()
-    query1 = "SELECT COUNT(*) FROM matches;"
-    cursor.execute(query1)
-    result1 = cursor.fetchone()
-
-    # Win and match columns filled with zeros because no match has been done.
-    if (result1[0] == 0): 
-        query2 = """SELECT id, name, 0 AS wins, 0 AS matches FROM players;"""  
-    # After first round, query normally.
-    else: 
-        query2 = """SELECT players.id, players.name, matches.wins,
-                    matches.matches FROM players JOIN matches 
-                    ON players.id = matches.id ORDER BY wins DESC;"""
-    cursor.execute(query2)
+    query = """SELECT * FROM player_standings;"""
+    cursor.execute(query)
     result2 = cursor.fetchall()
     return result2
 
@@ -127,29 +114,13 @@ def reportMatch(winner, loser):
     """
     conn = connect()
     cursor = conn.cursor()
-    # Raise win-count for winner.
-    query1 = "UPDATE matches SET wins = wins + 1 WHERE id = %s;" 
-    data1 = (winner,)
-    cursor.execute(query1,data1)
+    cursor.execute("INSERT INTO match_result (winner_id,loser_id) VALUES (%s,%s)",(winner,loser))
     conn.commit()
-    # Raise lose-count for loser.
-    query2 = "UPDATE matches SET losses = losses + 1 WHERE id = %s;"
-    data2 = (loser,)
-    cursor.execute(query2,data2)
-    conn.commit()
-    # Raise match-count for both loser and winner.
-    query3 = "UPDATE matches SET matches = matches + 1 WHERE id = %s;"
-    data3 = (winner,)
-    cursor.execute(query3,data3)
-    conn.commit()
-    query4 = "UPDATE matches SET matches = matches + 1 WHERE id = %s;"
-    data4 = (loser,)
-    cursor.execute(query4,data4)
-    conn.commit()
-    conn.close();
-    print("""Successfully updated the outcome of a single match between 
-            player1_id = {0} and player2_id = {1}""".format(winner,loser))
+    conn.close()
+    print("Successfully updated the outcome of a single match between" 
+            + " player1_id = {0} (winner) and player2_id = {1} (loser)".format(winner,loser))
     return
+
   
 def swissPairings():
     """Pairs players for the next round of a match.
