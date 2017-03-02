@@ -1,4 +1,4 @@
-# Udacity-tournament-result
+# Udacity FSND 4th Project: Tournament Result
 
 ---
 
