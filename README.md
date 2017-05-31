@@ -4,6 +4,8 @@
 
 ## Introduction
 
+Note: This is Udacity evaluated assignment.
+
 Udacity Tournament Result is a project for the course "Intro to Relational Database". The module contains codes that keeps track of users and matches in a swiss-style tournament. This program is great for 2^n many players. The program uses psycopg2 library, and python.
 
 ## Step-by-step Instruction
@@ -15,13 +17,13 @@ Udacity Tournament Result is a project for the course "Intro to Relational Datab
 1. Install [git bash](https://git-scm.com/downloads) 
 2. Open git bash
 3. Navigate to a directory of choice. 
-4. Type `git clone https://github.com/hyungmogu/udacity-tournament-result/`; download the repository
+4. Type `git clone https://github.com/hyungmogu/tournament-result/`; download the repository
 
 #### Linux/MacOS
 
 1. Open terminal
 2. Navigate to a directory of choice
-3. Type `git clone https://github.com/hyungmogu/udacity-tournament-result/`; download the repository
+3. Type `git clone https://github.com/hyungmogu/tournament-result/`; download the repository
 
 ### 2. Installing Vagrant
 
@@ -36,7 +38,7 @@ Udacity Tournament Result is a project for the course "Intro to Relational Datab
 #### Windows
 1. Open git bash
 2. Navigate to the directory where the cloned repo is located
-3. Type `cd /udacity-tournament-result/vagrant/`; navigate to where `VagrantFile` is located
+3. Type `cd /tournament-result/vagrant/`; navigate to where `VagrantFile` is located
 4. Type `vagrant up`; let vagrant to setup dependencies
 5. Type `vagrant ssh` when step 4 is finished; login to the virtual machine
 
@@ -44,7 +46,7 @@ Udacity Tournament Result is a project for the course "Intro to Relational Datab
 
 1. Open terminal
 2. Navigate to the directory where the cloned repo is located
-3. Type `cd /udacity-tournament-result/vagrant/`; navigate to where `VagrantFile` is located
+3. Type `cd /tournament-result/vagrant/`; navigate to where `VagrantFile` is located
 4. Type `vagrant up`; let vagrant to setup dependencies
 5. Type `vagrant ssh` when step 4 is finished; login to the virtual machine
 
